@@ -1,0 +1,8 @@
+# Staged content drafts stay local (not published)
+output/*
+!output/.gitkeep
+
+# OS / tooling cruft
+.DS_Store
+*.png
+/tmp/

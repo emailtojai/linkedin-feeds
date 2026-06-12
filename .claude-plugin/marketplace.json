@@ -1,0 +1,19 @@
+{
+  "name": "content-engine-marketplace",
+  "description": "Single-plugin marketplace hosting the LinkedIn & X Content Engine.",
+  "owner": {
+    "name": "Jai Sharma",
+    "email": "jai.sharma5819@gmail.com"
+  },
+  "plugins": [
+    {
+      "name": "content-engine",
+      "source": "./",
+      "description": "Research, write, and visualize LinkedIn + X content from Medium RSS and web search, staged for human review.",
+      "category": "content",
+      "author": {
+        "name": "Jai Sharma"
+      }
+    }
+  ]
+}

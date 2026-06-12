@@ -1,0 +1,10 @@
+{
+  "name": "content-engine",
+  "description": "Research, write, and visualize LinkedIn + X content from free Medium RSS feeds and web search. Drafts a long-form LinkedIn post in your voice, a separate X post, and a matching SVG visual — all staged in a folder for your review before you publish manually.",
+  "version": "0.1.0",
+  "author": {
+    "name": "Jai Sharma",
+    "email": "jai.sharma5819@gmail.com"
+  },
+  "license": "MIT"
+}
