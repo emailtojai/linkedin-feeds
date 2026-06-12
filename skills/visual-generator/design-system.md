@@ -40,6 +40,22 @@ The Visual Generator reads this to build on-brand SVGs. Replace the TODO/placeho
 - Type: none (no logo on visuals for now)
 
 ## Layout rules
-- Quote cards: quote centered/left-aligned per preference; large type; one logo; minimal decoration.
+- Quote cards: quote centered/left-aligned per preference; large type; minimal decoration.
 - Data charts: one chart, max ~6 data points; label values directly; accent color for the key series.
 - High contrast, legible on a phone screen. No off-palette colors.
+
+## AI imagery (background generation)
+The Visual Generator can place an AI-generated **background image** behind the crisp SVG
+text/stats. Text and numbers ALWAYS stay as SVG (AI models can't render them accurately).
+
+- **Provider:** `huggingface`
+- **Model:** `black-forest-labs/FLUX.1-schnell`
+- **Auth:** `HF_TOKEN` environment variable. NEVER hardcode or commit it — this repo is public.
+- **Brand style-prompt suffix** (append to every image prompt):
+  `dark navy (#0E1116) base, electric-blue accent, abstract and atmospheric, editorial,
+   generous negative space, subtle texture, no text, no words, no letters, high quality`
+- **Scrim for legibility** (always applied over the image, under the text):
+  - Full-canvas dark overlay at ~0.60 opacity (`#0E1116`).
+  - Plus a stronger gradient (up to ~0.85) along the bottom/left where text sits.
+- **Fallback:** if `HF_TOKEN` is missing or generation fails, skip the image and use the
+  flat `Background` color above. The visual still renders.

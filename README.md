@@ -38,6 +38,21 @@ Four bundled reference files are templates with `TODO` placeholders. Fill them i
 
 The anti-AI guardrail (`skills/linkedin-writer/human-voice-rules.md`) is shared by both writers and keeps output sounding human, not generated. It's ready to use.
 
+## AI image setup (optional)
+
+The Visual Generator can place an **AI-generated background image** (Hugging Face, FLUX.1-schnell) behind the crisp SVG text/stats. It's optional — without a token the engine falls back to a flat-color SVG and still works.
+
+To enable it:
+1. Create a **free** Hugging Face token (no credit card) at https://huggingface.co/settings/tokens. Choose **Fine-grained** and enable the **"Make calls to Inference Providers"** permission (a plain Read token is not enough).
+2. Make it available as an env var, e.g. add to your shell profile (`~/.zshrc`):
+   ```
+   export HF_TOKEN=hf_xxxxxxxxxxxxxxxxx
+   ```
+   (or add it to Claude Code's settings `env`). Re-open your shell/session so it's loaded.
+3. Run a visual — the background image appears automatically; text and numbers stay sharp because they're SVG, not baked into the image.
+
+**Security:** the token is read only from `HF_TOKEN`. Never hardcode it or commit it — this repository is public. Free HF inference credits reset monthly; if you run out, the engine simply falls back to flat SVG.
+
 ## Use it
 
 Interactive (one command runs the pipeline):
@@ -50,7 +65,7 @@ This creates `output/<date>-ai-governance/` containing:
 - `digest.md` — the research
 - `linkedin.md` — the LinkedIn post (+ hooks, variant, first-comment ideas)
 - `x.md` — the X post/thread
-- `visual.svg` — the graphic (open in a browser to preview)
+- `visual.svg` — the graphic, self-contained (open in a browser to preview); `visual.png` when rendered. With `HF_TOKEN` set, it has an AI-generated background.
 - `metadata.json` — topic, sources, `status: draft`
 
 You review, edit, and post manually.
